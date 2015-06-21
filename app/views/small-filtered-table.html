@@ -1,0 +1,23 @@
+	<div class="col-lg-6">
+		<div class="widget">
+			<div class="widget-header">{{title}}
+				<div class="pull-right"><input type="text" class="form-control input-sm" ng-model="dataFilter"></div>
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+					<tr>
+						<th class="text-center">ID</th>
+						<th>Name</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="data in dataset | filter: {name: dataFilter}">
+						<td class="text-center">{{data.id}}</td>
+						<td>{{data.name}}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>

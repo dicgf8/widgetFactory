@@ -8,10 +8,19 @@
  * Controller of the widgetFactoryApp
  */
 angular.module('widgetFactoryApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('MainCtrl', function ($scope, userApi, widgetApi) {
+		$scope.users = [];
+		$scope.widgets = [];
+
+		userApi.all().then(function(results) {
+			$scope.users = results.data;
+		}, function() {
+
+		});
+
+		widgetApi.all().then(function(results) {
+			$scope.widgets = results.data;
+		}, function() {
+
+		});
+	});
