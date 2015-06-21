@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Widget Factory!</title>
+		<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/rdash.min.css">
+	</head>
+	<body ng-app="widgetFactoryApp">
+		<div id="page-wrapper" class="open">
+
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar">
+					<li class="sidebar-main"><a href="#/">Dashboard <span class="menu-icon fa fa-tachometer"></span></a></li>
+					<li class="sidebar-title"><span>NAVIGATION</span></li>
+					<li class="sidebar-list"><a href="#/">Dashboard <span class="menu-icon fa fa-tachometer"></span></a></li>
+					<li class="sidebar-list"><a ng-href="#/users">Users <span class="menu-icon fa fa-users"></span></a></li>
+					<li class="sidebar-list"><a ng-href="#/widgets">Widgets <span class="menu-icon fa fa-cubes"></span></a></li>
+				</ul>
+				<div class="sidebar-footer col-xs-12"><a href="#" target="_blank">&copy; 2015 David Carver</a></div>
+			</div>
+			<!-- End Sidebar -->
+			
+			<div id="content-wrapper">
+
+				<div class="page-content">
+						<!-- Header Bar -->
+						<div class="row header col-xs-12">
+							<div class="user pull-right">
+								<div class="item dropdown">
+									<a href="#" class="dropdown-toggle"><img src="images/avatar.jpg" alt=""></a>
+								</div>
+							</div>
+							<div class="meta">
+								<div class="page">Dashboard</div>
+								<div class="breadcrumb-links">Home / Dashboard</div>
+							</div>
+						</div>
+						<!-- End Header Bar -->
+						
+						<ng-view></ng-view>
+
+				</div><!-- End Page Content -->
+			</div><!-- End Content Wrapper -->
+		</div><!-- End Page Wrapper -->
+		
+		<!-- build:js(.) scripts/vendor.js -->
+		<!-- bower:js -->
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.js"></script>
+		<script src="bower_components/angular-route/angular-route.js"></script>
+		<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+		<script src="bower_components/angular-touch/angular-touch.js"></script>
+		<!-- endbower -->
+		<!-- endbuild -->
+
+		<!-- build:js({.tmp,app}) scripts/scripts.js -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers/main.js"></script>
+		<script src="scripts/controllers/about.js"></script>
+<script src="scripts/controllers/users.js"></script>
+<script src="scripts/controllers/widgets.js"></script>
+		<!-- endbuild -->
+	</body>
+</html>
