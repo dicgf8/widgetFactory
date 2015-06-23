@@ -1,0 +1,25 @@
+	<div class="col-lg-12">
+		<div class="widget">
+			<div class="widget-header">Users
+				<div class="pull-right"><input type="text" class="form-control input-sm" ng-model="dataFilter"></div>
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+					<tr>
+						<th ng-repeat="text in options" ng-class="text.columnClass">{{text.column || text.key | uppercase}}</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="user in dataset | filter: {name: dataFilter}">
+						<td class="text-center">{{user[options[0].key]}}</td>
+						<td>{{user[options[1].key]}}</td>
+						<td>
+							<img ng-src="{{user[options[2].key]}}" alt="{{options[0][option.key]}}" />
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
