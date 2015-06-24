@@ -20,11 +20,11 @@ angular.module('widgetFactoryApp')
 			return $http.get(WIDGET_API + widgetId);
 		};
 
-		service.create = function() {
-			return $http.post(WIDGET_API);
+		service.create = function(json) {
+			return $http.post(WIDGET_API, json);
 		};
 
-		service.update = function(widgetId) {
-			return $http.put(WIDGET_API + widgetId)
+		service.update = function(widgetId, json) {
+			return $http.put(WIDGET_API + widgetId, json)
 		};
 	});

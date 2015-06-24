@@ -1,3 +1,65 @@
+	<!-- Create/Edit -->
+	<div class="row">
+
+		<!-- Widget listing -->
+		<div class="col-lg-12" ng-show="showForm">
+			<div class="widget">
+				<div class="widget-header">Create/Edit Template</div>
+				<div class="widget-body clearfix">
+					<form name="widgetForm" class="form-horizontal" ng-submit="widgetForm.$valid && createWidget()" novalidate>
+
+						<legend>Create Widget</legend>
+
+						<!-- Name-->
+						<div class="controls">
+							Name
+							<input id="widget-name" name="widget-name" type="text" placeholder="foo-bar" class="input-medium" ng-model="form.name" required>
+						</div>
+
+						<!-- Price -->
+						<div class="controls">
+							<div class="input-prepend">
+								Price
+								<span class="add-on">$</span>
+								<input id="widget-price" name="widget-price" class="input-medium" placeholder="0.00" type="number" ng-model="form.price" required>
+							</div>
+						</div>
+
+						<!-- Color -->
+						<div class="controls">
+							Color
+							<select id="widget-color" name="widget-color" class="input-large" ng-model="form.color" required>
+								<option>red</option>
+								<option>purple</option>
+								<option>black</option>
+								<option>green</option>
+								<option>magenta</option>
+								<option>white</option>
+								<option>depends on the viewing angle</option>
+							</select>
+						</div>
+
+						<!-- Melts -->
+						<div class="controls">
+							Melts
+							<input type="checkbox" name="widget-properties" id="widget-properties-0" value="melts" ng-model="form.melts" ng-init="form.melts=false">
+						</div>
+
+						<!-- Inventory -->
+						<div class="controls">
+							Inventory
+							<input id="widget-count" name="widget-count" type="number" placeholder="#?" class="input-small" ng-model="form.inventory" required>
+						</div>
+
+						<div class="pull-right">
+							<button type="submit" class="btn btn-sm btn-info">Build</button>
+						</div>
+					</form>
+				</div><!-- End Widget body -->
+			</div><!-- End Widget -->
+		</div><!-- End Column -->
+	</div><!-- End Row -->
+
 	<!-- Tables -->
 	<div class="row">
 
@@ -6,7 +68,7 @@
 			<div class="widget">
 				<div class="widget-header">Widgets
 					<div class="pull-right">
-						<button class="btn btn-sm btn-info">+ Create</button>
+						<button class="btn btn-sm btn-info" ng-click="showFormToggle()">+ Create</button>
 					</div>
 				</div>
 				<div class="table-responsive">
@@ -22,13 +84,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td class="text-center">1</td>
-								<td>Foo</td>
-								<td>red</td>
-								<td>$4.99</td>
-								<td>yes</td>
-								<td>27</td>
+							<tr ng-repeat="widget in widgets">
+								<td class="text-center">{{widget.id}}</td>
+								<td>{{widget.name}}</td>
+								<td>{{widget.color}}</td>
+								<td>{{widget.price | currency}}</td>
+								<td>{{widget.melts | boolToYesNo}}</td>
+								<td>{{widget.inventory}}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -39,61 +101,3 @@
 	</div><!-- End Row -->
 
 	<hr>
-
-	<!-- Create/Edit -->
-	<div class="row">
-
-		<!-- Widget listing -->
-		<div class="col-lg-12">
-			<div class="widget">
-				<div class="widget-header">Create/Edit Template</div>
-				<div class="widget-body">
-					<form class="form-horizontal">
-
-						<legend>Create Widget</legend>
-
-						<!-- Name-->
-						<div class="controls">
-							Name
-							<input id="widget-name" name="widget-name" type="text" placeholder="foo-bar" class="input-medium">
-						</div>
-
-						<!-- Price -->
-						<div class="controls">
-							<div class="input-prepend">
-								Price
-								<span class="add-on">$</span>
-								<input id="widget-price" name="widget-price" class="input-medium" placeholder="0.00" type="text">
-							</div>
-						</div>
-
-						<!-- Color -->
-						<div class="controls">
-							Color
-							<select id="widget-color" name="widget-color" class="input-large">
-								<option>red</option>
-								<option>purple</option>
-								<option>black</option>
-								<option>green</option>
-								<option>magenta</option>
-								<option>white</option>
-								<option>depends on the viewing angle</option>
-							</select>
-						</div>
-
-						<!-- Melts -->
-						<div class="controls">
-							Melts
-							<input type="checkbox" name="widget-properties" id="widget-properties-0" value="melts">
-						</div>
-
-						<!-- Inventory -->
-						<div class="controls">
-							Inventory
-							<input id="widget-count" name="widget-count" type="text" placeholder="#?" class="input-small">
-						</div>
-					</form>
-				</div><!-- End Widget body -->
-			</div><!-- End Widget -->
-		</div><!-- End Column -->
-	</div><!-- End Row -->
