@@ -11,7 +11,7 @@
 					</tr>
 					</thead>
 					<tbody>
-					<tr ng-repeat="user in dataset | filter: {name: dataFilter}">
+					<tr ng-repeat="user in dataset | filter: {name: dataFilter}" path="/users/{{user[options[0].key]}}" open-path>
 						<td class="text-center">{{user[options[0].key]}}</td>
 						<td>{{user[options[1].key]}}</td>
 						<td>

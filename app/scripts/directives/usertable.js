@@ -13,7 +13,6 @@ angular.module('widgetFactoryApp')
 			restrict: 'E',
 			scope: {
 				dataset : "=",
-				//options must contain array of objects with minimum of property 'key'
 				options : "="
 			},
 			replace: true,

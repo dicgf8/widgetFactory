@@ -29,10 +29,20 @@ angular
 				templateUrl: 'views/users.html',
 				controller: 'UsersCtrl'
 			})
+			.when('/users/:userId', {
+				name: 'Users',
+				templateUrl: 'views/user-details.html',
+				controller: 'UserdetailsCtrl'
+			})
 			.when('/widgets', {
 				name: 'Widgets',
 				templateUrl: 'views/widgets.html',
 				controller: 'WidgetsCtrl'
+			})
+			.when('/widgets/:widgetId', {
+				name: 'Widgets',
+				templateUrl: 'views/widget-details.html',
+				controller: 'WidgetdetailsCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'

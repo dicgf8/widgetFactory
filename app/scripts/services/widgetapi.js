@@ -16,7 +16,7 @@ angular.module('widgetFactoryApp')
 			return $http.get(WIDGET_API);
 		};
 
-		service.read = function(widgetId) {
+		service.get = function(widgetId) {
 			return $http.get(WIDGET_API + widgetId);
 		};
 

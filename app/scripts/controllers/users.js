@@ -8,7 +8,7 @@
  * Controller of the widgetFactoryApp
  */
 angular.module('widgetFactoryApp')
-	.controller('UsersCtrl', function ($scope, userApi) {
+	.controller('UsersCtrl', function ($scope,  userApi) {
 		$scope.users = [];
 
 		$scope.tableOptions = [

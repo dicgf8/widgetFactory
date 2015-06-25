@@ -84,7 +84,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="widget in widgets">
+							<tr ng-repeat="widget in widgets" path="/widgets/{{widget.id}}" open-path>
 								<td class="text-center">{{widget.id}}</td>
 								<td>{{widget.name}}</td>
 								<td>{{widget.color}}</td>

@@ -1,0 +1,69 @@
+	<div class="col-lg-6">
+		<div class="widget">
+			<div class="widget-header">
+				{{widget.name}}
+				<div class="pull-right">ID: {{widget.id}}</div>
+			</div>
+			<div class="widget-body clearfix">
+				<div ng-hide="editing">
+					<h3>Price: {{widget.price | currency}}</h3>
+					<p>Color: {{widget.color}}</p>
+					<p>Inventory: {{widget.inventory}}</p>
+					<p>Melts?: {{widget.melts | boolToYesNo}}</p>
+					<div class="pull-right">
+						<button class="btn btn-sm btn-info" ng-click="showForm()">Edit</button>
+					</div>
+				</div>
+				<form name="widgetForm" class="form-horizontal" ng-show="editing"  ng-submit="widgetForm.$valid && updateWidget()" novalidate>
+
+					<legend>Editing</legend>
+
+					<!-- Name-->
+					<div class="controls">
+						Name
+						<input id="widget-name" name="widget-name" type="text" placeholder="foo-bar" class="input-medium" ng-model="form.name" required>
+					</div>
+
+					<!-- Price -->
+					<div class="controls">
+						<div class="input-prepend">
+							Price
+							<span class="add-on">$</span>
+							<input id="widget-price" name="widget-price" class="input-medium" placeholder="0.00" type="number" ng-model="form.price" required>
+						</div>
+					</div>
+
+					<!-- Color -->
+					<div class="controls">
+						Color
+						<select id="widget-color" name="widget-color" class="input-large" ng-model="form.color" required>
+							<option>red</option>
+							<option>purple</option>
+							<option>black</option>
+							<option>green</option>
+							<option>magenta</option>
+							<option>white</option>
+							<option>depends on the viewing angle</option>
+						</select>
+					</div>
+
+					<!-- Melts -->
+					<div class="controls">
+						Melts
+						<input type="checkbox" name="widget-properties" id="widget-properties-0" value="melts" ng-model="form.melts">
+					</div>
+
+					<!-- Inventory -->
+					<div class="controls">
+						Inventory
+						<input id="widget-count" name="widget-count" type="number" placeholder="#?" class="input-small" ng-model="form.inventory" required>
+					</div>
+
+					<div class="pull-right">
+						<button type="button" class="btn btn-sm btn-danger" ng-click="hideForm()">Cancel</button>
+						<button type="submit" class="btn btn-sm btn-info">Update</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
